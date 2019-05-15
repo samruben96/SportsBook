@@ -1,3 +1,7 @@
-<p>
-  sports-list works!
-</p>
+
+  <label  *ngFor="let sport of sportsData; let i = index">
+    <input type ="checkbox">
+    {{sportsData[i]['title']}}
+  </label>
+  <button>submit</button>
+
