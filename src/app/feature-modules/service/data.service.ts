@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class DataService {
 
-  constructor(private readonly http: HttpClient) {  }
+  constructor(private  http: HttpClient) {  }
 
 
 public loadData(): any {

@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 export class SportsListComponent implements OnInit {
   form: FormGroup
   public sportsData = []
+  public checkedSports =[]
 
  
   constructor(private _data: DataService, private formBuilder: FormBuilder) { 
@@ -25,11 +26,27 @@ export class SportsListComponent implements OnInit {
     const sportData = this._data.loadData();
     sportData.subscribe(listData =>{
       this.sportsData = listData.data;
+      for(var i =0; i<this.sportsData.length; i++){
+        this.sportsData[i]['checked'] = false
+      }
       console.log(this.sportsData)
       return this.sportsData
     })
    
   }
+  checkCheckBoxvalue(event){
+    this.checkedSports.indexOf(event.target.value) === -1 ? this.checkedSports.push(event.target.value) : console.log("This item already exists");
+
+
+    console.log(this.checkedSports)
+   
+     
+
+  
+ 
+
+
+}
 
 
 
