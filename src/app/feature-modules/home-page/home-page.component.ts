@@ -11,7 +11,7 @@ export class HomePageComponent implements OnInit {
   constructor(private _data: DataService) { }
 
   ngOnInit() {
-    this._data.getData()
+  
     
   }
 
