@@ -1,4 +1,4 @@
-<div class = "form-group">
+<!-- <div class = "form-group">
   <label  *ngFor="let sport of sportsData; let i = index">
     <input (change)="checkCheckBoxvalue($event)"  type ="checkbox" value = "{{sportsData[i]['title']}}"
     >
@@ -7,4 +7,12 @@
   </div>
   <button (click)="submit()">submit</button>
 
+ -->
 
+ <form [formGroup]="form" (ngSubmit)="submit()">
+  <label formArrayName = "sportsData" *ngFor="let sport of form.controls.sportsData.controls; let i = index">
+    <input type="checkbox" [formControlName]="i" value=" {{sportsData[i].title}}">
+    {{sportsData[i].title}}
+    </label>
+  <button>submit</button>
+</form>

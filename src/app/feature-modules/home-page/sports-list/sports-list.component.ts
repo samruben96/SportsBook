@@ -9,16 +9,23 @@ import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 })
 export class SportsListComponent implements OnInit {
   form: FormGroup
-  public sportsData = []
+  sportsData = []
   public checkedSports =[]
 
  
   constructor(private _data: DataService, private formBuilder: FormBuilder) { 
-
+    this.form = this.formBuilder.group({
+      sportsData: new FormArray([])
+    });
+    this.getData()
   }
 
+  // private addCheckboxes(){
+  //   this.sportsData.map(o,i)
+  // }
+
   ngOnInit() {
-    this.getData()
+  
 
  
   }
@@ -30,9 +37,16 @@ export class SportsListComponent implements OnInit {
         this.sportsData[i]['checked'] = false
       }
       console.log(this.sportsData)
-      return this.sportsData
+      this.sportsData.map((o,i)=>{
+        const control = new FormControl(i === 0);
+        (this.form.controls.sportsData as FormArray).push(control)
+
+      })
     })
    
+  }
+  submit(){
+    console.log(this.form)
   }
   // checkCheckBoxvalue(event){
    
