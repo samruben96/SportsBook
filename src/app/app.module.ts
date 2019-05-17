@@ -8,20 +8,25 @@ import { SportsListComponent } from './feature-modules/home-page/sports-list/spo
 import { HomePageComponent } from './feature-modules/home-page/home-page.component';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
 import { NavComponent } from './feature-modules/nav/nav.component';
+import { BettingViewHomeComponent } from './feature-modules/betting-view-home/betting-view-home.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     SportsListComponent,
     HomePageComponent,
-    NavComponent
+    NavComponent,
+    BettingViewHomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
     
   ],
   providers: [],

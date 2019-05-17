@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SendSelectedSportsService } from '../service/send-selected-sports.service';
 
 @Component({
   selector: 'app-betting-view-home',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./betting-view-home.component.css']
 })
 export class BettingViewHomeComponent implements OnInit {
+  public data: Array<any>;
 
-  constructor() { }
+  constructor(private selectSport: SendSelectedSportsService) { 
+    
+  }
 
   ngOnInit() {
+
+    this.selectSport.getSelectedSports$.subscribe((data)=>{
+      this.data = data;
+      console.log(this.data)
+
+    })
   }
 
 }

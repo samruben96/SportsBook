@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../../service/data.service';
 import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
+import { SendSelectedSportsService } from '../../service/send-selected-sports.service';
 
 @Component({
   selector: 'app-sports-list',
@@ -13,7 +14,7 @@ export class SportsListComponent implements OnInit {
   public checkedSports =[]
   public indexVals = []
  
-  constructor(private _data: DataService, private formBuilder: FormBuilder) { 
+  constructor(private _data: DataService, private formBuilder: FormBuilder, private sendSport:SendSelectedSportsService) { 
     this.form = this.formBuilder.group({
       sportsData: new FormArray([])
     });
@@ -56,7 +57,9 @@ export class SportsListComponent implements OnInit {
      
     }
     console.log(this.checkedSports)
+    this.sendSport.serviceMethod(this.checkedSports)
 
+    return this.checkedSports;
 
   }
   // checkCheckBoxvalue(event){
