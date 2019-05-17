@@ -11,7 +11,7 @@ export class SportsListComponent implements OnInit {
   form: FormGroup
   sportsData = []
   public checkedSports =[]
-
+  public indexVals = []
  
   constructor(private _data: DataService, private formBuilder: FormBuilder) { 
     this.form = this.formBuilder.group({
@@ -46,7 +46,18 @@ export class SportsListComponent implements OnInit {
    
   }
   submit(){
-    console.log(this.form)
+    let checkVal = this.form.value.sportsData;
+    console.log(checkVal.indexOf(true))
+    for(var i = 0; i<checkVal.length; i++){
+      if(checkVal[i]==true){
+        // this.indexVals.push(i)
+        this.checkedSports.push(this.sportsData[i].key)
+      }
+     
+    }
+    console.log(this.checkedSports)
+
+
   }
   // checkCheckBoxvalue(event){
    
