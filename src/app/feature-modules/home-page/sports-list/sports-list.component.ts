@@ -57,29 +57,10 @@ export class SportsListComponent implements OnInit {
      
     }
     console.log(this.checkedSports)
-    this.sendSport.serviceMethod(this.checkedSports)
-
-    return this.checkedSports;
+    this.sendSport.sendDataToOtherComponent(this.checkedSports)
 
   }
-  // checkCheckBoxvalue(event){
-   
-  //   this.checkedSports.indexOf(event.target.value) === -1 ? this.checkedSports.push(event.target.value) : console.log("This item already exists");
-  //   const index: number = this.checkedSports.indexOf(event.target.value)
-
-  //   console.log(index)
-    
   
-  //   console.log(this.checkedSports)
-
-  //   return this.checkedSports
-  // }
-  
-  // submit(){
-
-  //   console.log(this.checkedSports)
-  // }
-
 
 
 

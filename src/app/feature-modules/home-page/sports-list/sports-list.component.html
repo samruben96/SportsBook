@@ -1,5 +1,5 @@
 
- <form [formGroup]="form" (ngSubmit)="submit()">
+ <form [formGroup]="form" >
    <div class="pretty p-default">
   <label formArrayName = "sportsData" *ngFor="let sport of form.controls.sportsData.controls; let i = index">
     
@@ -9,5 +9,7 @@
    
   </div>
   
-  <button class="nav-item nav-link-edit" [routerLink]="['bets']">submit</button>
+  <button class="nav-item nav-link-edit" [routerLink]="['bets']" (click) ="submit()"
+  >submit</button>
 </form>
+
